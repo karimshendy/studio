@@ -8,9 +8,9 @@ import Footer from '@/components/layout/footer';
 import { LanguageProvider } from '@/context/language-context';
 
 export const metadata: Metadata = {
-  title: 'منزل - منزلك، بتصور جديد | Manzel - Your Home, Reimagined',
+  title: 'كريم ارت - منزلك، بتصور جديد | KARIMART - Your Home, Reimagined',
   description:
-    'اكتشف أثاثًا وتصميمات مخصصة مع منزل. استخدم أدواتنا المدعومة بالذكاء الاصطناعي لتتخيل مساحتك المثالية. | Discover custom furniture and designs with Manzel. Use our AI-powered tools to visualize your perfect space.',
+    'اكتشف أثاثًا وتصميمات مخصصة مع كريم ارت. استخدم أدواتنا المدعومة بالذكاء الاصطناعي لتتخيل مساحتك المثالية. | Discover custom furniture and designs with KARIMART. Use our AI-powered tools to visualize your perfect space.',
 };
 
 export default function RootLayout({
