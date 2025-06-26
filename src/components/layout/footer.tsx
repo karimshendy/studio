@@ -1,7 +1,13 @@
+
+'use client';
+
 import Link from 'next/link';
 import { Sofa, Twitter, Facebook, Instagram } from 'lucide-react';
+import { useLanguage } from '@/context/language-context';
 
 export default function Footer() {
+  const { dictionary: t } = useLanguage();
+
   return (
     <footer className="border-t bg-secondary/30">
       <div className="container mx-auto py-12">
@@ -9,54 +15,54 @@ export default function Footer() {
           <div className="flex flex-col">
             <Link href="/" className="flex items-center space-x-2 rtl:space-x-reverse">
               <Sofa className="h-8 w-8 text-primary" />
-              <span className="font-headline text-2xl font-bold">منزل</span>
+              <span className="font-headline text-2xl font-bold">{t.footer.title}</span>
             </Link>
             <p className="mt-4 text-muted-foreground">
-              نصنع منزل أحلامك بأثاث وتصميمات مخصصة.
+              {t.footer.description}
             </p>
           </div>
           <div>
-            <h3 className="font-headline text-lg font-semibold">استكشف</h3>
+            <h3 className="font-headline text-lg font-semibold">{t.footer.explore}</h3>
             <ul className="mt-4 space-y-2">
               <li>
                 <Link href="/products" className="hover:text-primary">
-                  المنتجات
+                  {t.footer.products}
                 </Link>
               </li>
               <li>
                 <Link href="/ar-designer" className="hover:text-primary">
-                  المصمم الذكي
+                  {t.footer.arDesigner}
                 </Link>
               </li>
               <li>
                 <Link href="/quote" className="hover:text-primary">
-                  اطلب عرض سعر
+                  {t.footer.getQuote}
                 </Link>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="font-headline text-lg font-semibold">الشركة</h3>
+            <h3 className="font-headline text-lg font-semibold">{t.footer.company}</h3>
             <ul className="mt-4 space-y-2">
               <li>
                 <Link href="/#about" className="hover:text-primary">
-                  عنا
+                  {t.footer.aboutUs}
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-primary">
-                  وظائف
+                  {t.footer.careers}
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-primary">
-                  تواصل معنا
+                  {t.footer.contactUs}
                 </Link>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="font-headline text-lg font-semibold">تابعنا</h3>
+            <h3 className="font-headline text-lg font-semibold">{t.footer.followUs}</h3>
             <div className="mt-4 flex space-x-4 rtl:space-x-reverse">
               <Link href="#" className="text-muted-foreground hover:text-primary">
                 <Twitter />
@@ -71,7 +77,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-12 border-t pt-8 text-center text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} منزل. جميع الحقوق محفوظة.</p>
+          <p>&copy; {new Date().getFullYear()} {t.footer.copyright}</p>
         </div>
       </div>
     </footer>

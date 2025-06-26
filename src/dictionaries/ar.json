@@ -1,0 +1,153 @@
+
+{
+    "header": {
+      "title": "منزل",
+      "home": "الرئيسية",
+      "products": "المنتجات",
+      "arDesigner": "المصمم الذكي",
+      "admin": "لوحة التحكم",
+      "getQuote": "اطلب عرض سعر"
+    },
+    "footer": {
+      "title": "منزل",
+      "description": "نصنع منزل أحلامك بأثاث وتصميمات مخصصة.",
+      "explore": "استكشف",
+      "products": "المنتجات",
+      "arDesigner": "المصمم الذكي",
+      "getQuote": "اطلب عرض سعر",
+      "company": "الشركة",
+      "aboutUs": "عنا",
+      "careers": "وظائف",
+      "contactUs": "تواصل معنا",
+      "followUs": "تابعنا",
+      "copyright": "منزل. جميع الحقوق محفوظة."
+    },
+    "home": {
+      "heroTitle": "منزل",
+      "heroSubtitle": "منزلك، بتصور جديد.",
+      "heroDescription": "أثاث وتصميم داخلي مخصص يروي قصتك.",
+      "exploreCollection": "اكتشف مجموعتنا",
+      "smartDesignerTool": "أداة المصمم الذكي",
+      "aboutTitle": "نصنع المساحات، نخلق الراحة",
+      "aboutDescription": "في منزل، نؤمن بأن المنزل هو أكثر من مجرد مكان للعيش؛ إنه ملاذ يعكس شخصيتك وأسلوبك. مهمتنا هي أن نوفر لك أثاثًا عالي الجودة ومصممًا بشكل جميل وحلول تصميم تحول مساحتك إلى منزل حقيقي.",
+      "featuredProductsTitle": "منتجات مميزة",
+      "featuredProductsDescription": "تصاميم مختارة بعناية تمزج بين الأناقة الخالدة والوظائف العصرية.",
+      "viewAllProducts": "عرض كل المنتجات",
+      "ctaTitle": "تخيل غرفة أحلامك",
+      "ctaDescription": "هل تجد صعوبة في تخيل كيف سيبدو أثاثنا في مساحتك؟ تتيح لك أداة الواقع المعزز الثورية والمدعومة بالذكاء الاصطناعي رؤيته قبل الشراء. احصل على اقتراحات، وحسّن التخطيطات، وصمم بثقة.",
+      "trySmartDesigner": "جرب المصمم الذكي"
+    },
+    "productsPage": {
+      "title": "مجموعتنا",
+      "description": "اكتشف مجموعتنا المختارة من الأثاث والحلول المخصصة. كل قطعة مصممة بشغف ومصنوعة بإتقان، جاهزة لتحويل رؤيتك إلى حقيقة."
+    },
+    "productList": {
+      "all": "الكل",
+      "noProductsFound": "لم يتم العثور على منتجات",
+      "tryAnotherCategory": "حاول تحديد فئة أخرى."
+    },
+    "productCard": {
+      "viewDetails": "عرض التفاصيل",
+      "onDemand": "عند الطلب"
+    },
+    "productDetailsPage": {
+      "priceOnDemand": "السعر عند الطلب",
+      "productDetails": "تفاصيل المنتج",
+      "materials": "المواد:",
+      "dimensions": "الأبعاد:",
+      "availableColors": "الألوان المتاحة:",
+      "getFreeQuote": "اطلب عرض سعر مجاني"
+    },
+    "arDesignerPage": {
+      "title": "ستوديو المصمم الذكي",
+      "description": "حوّل رؤيتك إلى حقيقة. استخدم أدوات الذكاء الاصطناعي المتطورة للحصول على اقتراحات أثاث بناءً على صورة غرفتك، وحسّن التصميم لتحقيق الانسجام والتدفق المثالي."
+    },
+    "arToolClient": {
+      "tabs": {
+        "suggestions": "اقتراح أثاث",
+        "layout": "تحسين التخطيط"
+      },
+      "suggestions": {
+        "title": "اقتراحات الأثاث",
+        "description": "قم بتحميل صورة لغرفتك، ودع الذكاء الاصطناعي يجد لك الأثاث المثالي.",
+        "roomPhoto": "صورة الغرفة",
+        "stylePreferences": "تفضيلات الأسلوب",
+        "stylePlaceholder": "مثال: مودرن منتصف القرن، اسكندنافي",
+        "colorSchemes": "الألوان المفضلة",
+        "colorPlaceholder": "مثال: ألوان ترابية، باستيل، أحادي اللون",
+        "getSuggestions": "الحصول على اقتراحات",
+        "analyzing": "جاري تحليل مساحتك...",
+        "aiSuggestionsTitle": "اقتراحات الذكاء الاصطناعي",
+        "reasoning": "السبب",
+        "suggestions": "الاقتراحات",
+        "placeholderTitle": "ستظهر اقتراحاتك المدعومة بالذكاء الاصطناعي هنا."
+      },
+      "layout": {
+        "title": "تحسين التخطيط",
+        "description": "قدم تفاصيل غرفتك ودع الذكاء الاصطناعي يجد أفضل ترتيب للأثاث.",
+        "roomDimensions": "أبعاد الغرفة",
+        "dimensionsPlaceholder": "مثال: 12 قدم × 15 قدم مع سقف 8 أقدام",
+        "selectedFurniture": "الأثاث المختار وأبعاده",
+        "furniturePlaceholder": "مثال: أريكة: 7 قدم × 3 قدم، طاولة قهوة: 4 قدم × 2 قدم",
+        "stylePreferences": "تفضيلات الأسلوب (اختياري)",
+        "stylePlaceholder": "مثال: مفتوح ومتجدد الهواء، مريح، عملي",
+        "roomPhoto": "صورة الغرفة (اختياري)",
+        "photoDescription": "توفير صورة يمكن أن يحسن دقة التخطيط.",
+        "optimizeLayout": "تحسين التخطيط",
+        "optimizing": "جاري تحسين التخطيط الخاص بك...",
+        "optimizedPlan": "خطة التخطيط المحسنة",
+        "placeholderTitle": "سيظهر تخطيط الأثاث الأمثل هنا."
+      },
+      "form": {
+        "photoRequired": "صورة غرفتك مطلوبة.",
+        "stylePreferencesRequired": "يرجى وصف تفضيلات أسلوبك.",
+        "colorSchemesRequired": "يرجى وصف نظام الألوان الخاص بك.",
+        "roomDimensionsRequired": "أبعاد الغرفة مطلوبة.",
+        "selectedFurnitureRequired": "يرجى ذكر الأثاث الذي اخترته."
+      }
+    },
+    "quotePage": {
+      "title": "احصل على عرض سعر مجاني",
+      "description": "أخبرنا عن مشروعك، وسنعاود الاتصال بك بعرض أسعار مخصص."
+    },
+    "quoteForm": {
+      "fullName": "الاسم الكامل",
+      "namePlaceholder": "فلان الفلاني",
+      "phone": "رقم الهاتف",
+      "phonePlaceholder": "XXX-XXX-XXXX",
+      "city": "المدينة",
+      "cityPlaceholder": "الرياض",
+      "measurements": "قياسات المساحة (اختياري)",
+      "measurementsPlaceholder": "مثال: غرفة المعيشة: 15 قدم × 20 قدم",
+      "projectDetails": "تفاصيل المشروع",
+      "detailsPlaceholder": "صف مشروعك وتفضيلات الأسلوب وأي عناصر محددة تهتم بها.",
+      "uploadImages": "تحميل الصور (اختياري)",
+      "getFreeQuote": "احصل على عرض سعر مجاني",
+      "submitting": "جاري الإرسال...",
+      "successTitle": "تم إرسال طلب عرض السعر بنجاح!",
+      "successDescription": "شكرًا لك! لقد تلقينا طلبك وسنتواصل معك قريبًا.",
+      "errors": {
+        "name": "يجب أن يتكون الاسم من حرفين على الأقل.",
+        "phone": "يرجى إدخال رقم هاتف صالح.",
+        "city": "المدينة مطلوبة.",
+        "details": "يرجى تقديم بعض التفاصيل حول مشروعك."
+      }
+    },
+    "adminPage": {
+      "title": "لوحة التحكم",
+      "description": "إدارة كتالوج المنتجات الخاصة بك.",
+      "addProduct": "إضافة منتج"
+    },
+    "adminProductList": {
+      "allProducts": "كل المنتجات",
+      "image": "صورة",
+      "name": "الاسم",
+      "category": "الفئة",
+      "price": "السعر",
+      "actions": "الإجراءات",
+      "toggleMenu": "تبديل القائمة",
+      "edit": "تعديل",
+      "delete": "حذف",
+      "onDemand": "عند الطلب"
+    }
+}

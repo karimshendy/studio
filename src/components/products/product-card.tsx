@@ -1,17 +1,23 @@
+
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Product } from '@/types';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { useLanguage } from '@/context/language-context';
 
 interface ProductCardProps {
   product: Product;
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const { dictionary: t, language } = useLanguage();
   const { name, slug, images, category, price } = product;
   const primaryImage = images[0] || { src: 'https://placehold.co/600x400.png', alt: 'Placeholder', aiHint: 'placeholder' };
+  const Arrow = language === 'ar' ? ArrowLeft : ArrowRight;
 
   return (
     <Card className="flex h-full flex-col overflow-hidden transition-all duration-300 hover:shadow-xl">
@@ -40,10 +46,10 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div className="text-lg font-semibold">
           {price.type === 'fixed'
             ? `$${price.value?.toFixed(2)}`
-            : 'عند الطلب'}
+            : t.productCard.onDemand}
         </div>
         <Link href={`/products/${slug}`} className="flex items-center text-sm font-semibold text-primary hover:underline">
-          عرض التفاصيل <ArrowLeft className="ms-1 h-4 w-4" />
+          {t.productCard.viewDetails} <Arrow className="ms-1 h-4 w-4" />
         </Link>
       </CardFooter>
     </Card>

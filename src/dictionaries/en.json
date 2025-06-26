@@ -1,0 +1,153 @@
+
+{
+  "header": {
+    "title": "Manzel",
+    "home": "Home",
+    "products": "Products",
+    "arDesigner": "Smart Designer",
+    "admin": "Dashboard",
+    "getQuote": "Get a Quote"
+  },
+  "footer": {
+    "title": "Manzel",
+    "description": "Crafting your dream home with custom furniture and designs.",
+    "explore": "Explore",
+    "products": "Products",
+    "arDesigner": "Smart Designer",
+    "getQuote": "Get a Quote",
+    "company": "Company",
+    "aboutUs": "About Us",
+    "careers": "Careers",
+    "contactUs": "Contact Us",
+    "followUs": "Follow Us",
+    "copyright": "Manzel. All rights reserved."
+  },
+  "home": {
+    "heroTitle": "Manzel",
+    "heroSubtitle": "Your home, reimagined.",
+    "heroDescription": "Custom furniture and interior design that tells your story.",
+    "exploreCollection": "Explore Our Collection",
+    "smartDesignerTool": "Smart Designer Tool",
+    "aboutTitle": "We Craft Spaces, We Create Comfort",
+    "aboutDescription": "At Manzel, we believe a home is more than just a place to live; it's a sanctuary that reflects your personality and style. Our mission is to provide you with high-quality, beautifully designed furniture and design solutions that transform your space into a true home.",
+    "featuredProductsTitle": "Featured Products",
+    "featuredProductsDescription": "Hand-picked designs that blend timeless elegance with modern functionality.",
+    "viewAllProducts": "View All Products",
+    "ctaTitle": "Visualize Your Dream Room",
+    "ctaDescription": "Struggling to imagine how our furniture will look in your space? Our revolutionary AI-powered AR tool lets you see it before you buy. Get suggestions, optimize layouts, and design with confidence.",
+    "trySmartDesigner": "Try the Smart Designer"
+  },
+  "productsPage": {
+    "title": "Our Collection",
+    "description": "Discover our curated selection of furniture and custom solutions. Each piece is designed with passion and crafted with precision, ready to bring your vision to life."
+  },
+  "productList": {
+    "all": "All",
+    "noProductsFound": "No Products Found",
+    "tryAnotherCategory": "Try selecting another category."
+  },
+  "productCard": {
+    "viewDetails": "View Details",
+    "onDemand": "On Demand"
+  },
+  "productDetailsPage": {
+    "priceOnDemand": "Price upon request",
+    "productDetails": "Product Details",
+    "materials": "Materials:",
+    "dimensions": "Dimensions:",
+    "availableColors": "Available Colors:",
+    "getFreeQuote": "Request a Free Quote"
+  },
+  "arDesignerPage": {
+    "title": "Smart Designer Studio",
+    "description": "Turn your vision into reality. Use our cutting-edge AI tools to get furniture suggestions based on your room's photo, and optimize the layout for perfect harmony and flow."
+  },
+  "arToolClient": {
+    "tabs": {
+      "suggestions": "Suggest Furniture",
+      "layout": "Optimize Layout"
+    },
+    "suggestions": {
+      "title": "Furniture Suggestions",
+      "description": "Upload a photo of your room, and let our AI find the perfect furniture for you.",
+      "roomPhoto": "Room Photo",
+      "stylePreferences": "Style Preferences",
+      "stylePlaceholder": "e.g., Mid-century modern, Scandinavian",
+      "colorSchemes": "Favorite Colors",
+      "colorPlaceholder": "e.g., Earth tones, pastels, monochrome",
+      "getSuggestions": "Get Suggestions",
+      "analyzing": "Analyzing your space...",
+      "aiSuggestionsTitle": "AI Suggestions",
+      "reasoning": "Reasoning",
+      "suggestions": "Suggestions",
+      "placeholderTitle": "Your AI-powered suggestions will appear here."
+    },
+    "layout": {
+      "title": "Layout Optimization",
+      "description": "Provide your room details and let the AI find the best furniture arrangement.",
+      "roomDimensions": "Room Dimensions",
+      "dimensionsPlaceholder": "e.g., 12ft x 15ft with 8ft ceiling",
+      "selectedFurniture": "Selected Furniture & Dimensions",
+      "furniturePlaceholder": "e.g., Sofa: 7ft x 3ft, Coffee Table: 4ft x 2ft",
+      "stylePreferences": "Style Preferences (Optional)",
+      "stylePlaceholder": "e.g., Open and airy, cozy, functional",
+      "roomPhoto": "Room Photo (Optional)",
+      "photoDescription": "Providing a photo can improve layout accuracy.",
+      "optimizeLayout": "Optimize Layout",
+      "optimizing": "Optimizing your layout...",
+      "optimizedPlan": "Optimized Layout Plan",
+      "placeholderTitle": "Your optimal furniture layout will appear here."
+    },
+    "form": {
+      "photoRequired": "A photo of your room is required.",
+      "stylePreferencesRequired": "Please describe your style preferences.",
+      "colorSchemesRequired": "Please describe your color scheme.",
+      "roomDimensionsRequired": "Room dimensions are required.",
+      "selectedFurnitureRequired": "Please list your chosen furniture."
+    }
+  },
+  "quotePage": {
+    "title": "Get a Free Quote",
+    "description": "Tell us about your project, and we'll get back to you with a custom quote."
+  },
+  "quoteForm": {
+    "fullName": "Full Name",
+    "namePlaceholder": "John Doe",
+    "phone": "Phone Number",
+    "phonePlaceholder": "XXX-XXX-XXXX",
+    "city": "City",
+    "cityPlaceholder": "Riyadh",
+    "measurements": "Space Measurements (Optional)",
+    "measurementsPlaceholder": "e.g., Living Room: 15ft x 20ft",
+    "projectDetails": "Project Details",
+    "detailsPlaceholder": "Describe your project, style preferences, and any specific items you're interested in.",
+    "uploadImages": "Upload Images (Optional)",
+    "getFreeQuote": "Get a Free Quote",
+    "submitting": "Submitting...",
+    "successTitle": "Quote Request Sent Successfully!",
+    "successDescription": "Thank you! We've received your request and will be in touch soon.",
+    "errors": {
+      "name": "Name must be at least 2 characters.",
+      "phone": "Please enter a valid phone number.",
+      "city": "City is required.",
+      "details": "Please provide some details about your project."
+    }
+  },
+  "adminPage": {
+    "title": "Dashboard",
+    "description": "Manage your product catalog.",
+    "addProduct": "Add Product"
+  },
+  "adminProductList": {
+    "allProducts": "All Products",
+    "image": "Image",
+    "name": "Name",
+    "category": "Category",
+    "price": "Price",
+    "actions": "Actions",
+    "toggleMenu": "Toggle menu",
+    "edit": "Edit",
+    "delete": "Delete",
+    "onDemand": "On Demand"
+  }
+}

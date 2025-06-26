@@ -1,3 +1,6 @@
+
+'use client';
+
 import { products } from "@/lib/data";
 import {
   Table,
@@ -13,25 +16,29 @@ import { Button } from "@/components/ui/button";
 import { MoreHorizontal } from "lucide-react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import { useLanguage } from "@/context/language-context";
 
 export default function AdminProductList() {
+  const { dictionary: t } = useLanguage();
+  const T = t.adminProductList;
+  
   return (
     <Card>
         <CardHeader>
-            <CardTitle>كل المنتجات</CardTitle>
+            <CardTitle>{T.allProducts}</CardTitle>
         </CardHeader>
         <CardContent>
             <Table>
             <TableHeader>
                 <TableRow>
                 <TableHead className="hidden w-[100px] sm:table-cell">
-                    <span className="sr-only">صورة</span>
+                    <span className="sr-only">{T.image}</span>
                 </TableHead>
-                <TableHead>الاسم</TableHead>
-                <TableHead>الفئة</TableHead>
-                <TableHead>السعر</TableHead>
+                <TableHead>{T.name}</TableHead>
+                <TableHead>{T.category}</TableHead>
+                <TableHead>{T.price}</TableHead>
                 <TableHead>
-                    <span className="sr-only">الإجراءات</span>
+                    <span className="sr-only">{T.actions}</span>
                 </TableHead>
                 </TableRow>
             </TableHeader>
@@ -55,20 +62,20 @@ export default function AdminProductList() {
                     <TableCell>
                         {product.price.type === "fixed"
                             ? `$${product.price.value?.toFixed(2)}`
-                            : "عند الطلب"}
+                            : T.onDemand}
                     </TableCell>
                     <TableCell>
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                         <Button aria-haspopup="true" size="icon" variant="ghost">
                             <MoreHorizontal className="h-4 w-4" />
-                            <span className="sr-only">Toggle menu</span>
+                            <span className="sr-only">{T.toggleMenu}</span>
                         </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
-                        <DropdownMenuLabel>الإجراءات</DropdownMenuLabel>
-                        <DropdownMenuItem>تعديل</DropdownMenuItem>
-                        <DropdownMenuItem>حذف</DropdownMenuItem>
+                        <DropdownMenuLabel>{T.actions}</DropdownMenuLabel>
+                        <DropdownMenuItem>{T.edit}</DropdownMenuItem>
+                        <DropdownMenuItem>{T.delete}</DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>
                     </TableCell>

@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useForm } from 'react-hook-form';
@@ -17,22 +18,26 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
 import { useState } from 'react';
-
-const quoteFormSchema = z.object({
-  name: z.string().min(2, 'يجب أن يتكون الاسم من حرفين على الأقل.'),
-  phone: z.string().min(10, 'يرجى إدخال رقم هاتف صالح.'),
-  city: z.string().min(2, 'المدينة مطلوبة.'),
-  measurements: z.string().optional(),
-  projectDetails: z.string().min(20, 'يرجى تقديم بعض التفاصيل حول مشروعك.'),
-  images: z.any().optional(),
-});
-
-type QuoteFormValues = z.infer<typeof quoteFormSchema>;
+import { useLanguage } from '@/context/language-context';
 
 export default function QuoteForm() {
+    const { dictionary: t } = useLanguage();
+    const T = t.quoteForm;
+
+    const quoteFormSchema = z.object({
+        name: z.string().min(2, T.errors.name),
+        phone: z.string().min(10, T.errors.phone),
+        city: z.string().min(2, T.errors.city),
+        measurements: z.string().optional(),
+        projectDetails: z.string().min(20, T.errors.details),
+        images: z.any().optional(),
+      });
+      
+    type QuoteFormValues = z.infer<typeof quoteFormSchema>;
+
     const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-  const form = useForm<QuoteFormValues>({
+    const { toast } = useToast();
+    const form = useForm<QuoteFormValues>({
     resolver: zodResolver(quoteFormSchema),
     defaultValues: {
       name: '',
@@ -50,8 +55,8 @@ export default function QuoteForm() {
     console.log(data);
     setIsSubmitting(false);
     toast({
-      title: 'تم إرسال طلب عرض السعر بنجاح!',
-      description: 'شكرًا لك! لقد تلقينا طلبك وسنتواصل معك قريبًا.',
+      title: T.successTitle,
+      description: T.successDescription,
     });
     form.reset();
   }
@@ -65,9 +70,9 @@ export default function QuoteForm() {
             name="name"
             render={({ field }) => (
                 <FormItem>
-                <FormLabel>الاسم الكامل</FormLabel>
+                <FormLabel>{T.fullName}</FormLabel>
                 <FormControl>
-                    <Input placeholder="فلان الفلاني" {...field} />
+                    <Input placeholder={T.namePlaceholder} {...field} />
                 </FormControl>
                 <FormMessage />
                 </FormItem>
@@ -78,9 +83,9 @@ export default function QuoteForm() {
             name="phone"
             render={({ field }) => (
                 <FormItem>
-                <FormLabel>رقم الهاتف</FormLabel>
+                <FormLabel>{T.phone}</FormLabel>
                 <FormControl>
-                    <Input placeholder="XXX-XXX-XXXX" {...field} />
+                    <Input placeholder={T.phonePlaceholder} {...field} />
                 </FormControl>
                 <FormMessage />
                 </FormItem>
@@ -92,9 +97,9 @@ export default function QuoteForm() {
             name="city"
             render={({ field }) => (
                 <FormItem>
-                <FormLabel>المدينة</FormLabel>
+                <FormLabel>{T.city}</FormLabel>
                 <FormControl>
-                    <Input placeholder="الرياض" {...field} />
+                    <Input placeholder={T.cityPlaceholder} {...field} />
                 </FormControl>
                 <FormMessage />
                 </FormItem>
@@ -105,9 +110,9 @@ export default function QuoteForm() {
             name="measurements"
             render={({ field }) => (
                 <FormItem>
-                <FormLabel>قياسات المساحة (اختياري)</FormLabel>
+                <FormLabel>{T.measurements}</FormLabel>
                 <FormControl>
-                    <Input placeholder="مثال: غرفة المعيشة: 15 قدم × 20 قدم" {...field} />
+                    <Input placeholder={T.measurementsPlaceholder} {...field} />
                 </FormControl>
                 <FormMessage />
                 </FormItem>
@@ -118,10 +123,10 @@ export default function QuoteForm() {
           name="projectDetails"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>تفاصيل المشروع</FormLabel>
+              <FormLabel>{T.projectDetails}</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="صف مشروعك وتفضيلات الأسلوب وأي عناصر محددة تهتم بها."
+                  placeholder={T.detailsPlaceholder}
                   className="min-h-[120px]"
                   {...field}
                 />
@@ -135,7 +140,7 @@ export default function QuoteForm() {
           name="images"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>تحميل الصور (اختياري)</FormLabel>
+              <FormLabel>{T.uploadImages}</FormLabel>
               <FormControl>
                 <Input type="file" multiple {...field} />
               </FormControl>
@@ -145,7 +150,7 @@ export default function QuoteForm() {
         />
         <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
             {isSubmitting && <Loader2 className="ms-2 h-4 w-4 animate-spin" />}
-            احصل على عرض سعر مجاني
+            {isSubmitting ? T.submitting : T.getFreeQuote}
         </Button>
       </form>
     </Form>
