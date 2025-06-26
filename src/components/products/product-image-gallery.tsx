@@ -39,8 +39,8 @@ export default function ProductImageGallery({ images }: ProductImageGalleryProps
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="left-4" />
-      <CarouselNext className="right-4" />
+      <CarouselPrevious className="start-4" />
+      <CarouselNext className="end-4" />
     </Carousel>
   );
 }

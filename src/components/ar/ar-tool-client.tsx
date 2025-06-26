@@ -35,14 +35,14 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 
 const suggestionSchema = z.object({
-  photo: z.any().refine((files) => files?.length > 0, 'A photo of your room is required.'),
-  stylePreferences: z.string().min(3, 'Please describe your style preference.'),
-  colorSchemes: z.string().min(3, 'Please describe your color scheme.'),
+  photo: z.any().refine((files) => files?.length > 0, 'صورة غرفتك مطلوبة.'),
+  stylePreferences: z.string().min(3, 'يرجى وصف تفضيلات أسلوبك.'),
+  colorSchemes: z.string().min(3, 'يرجى وصف نظام الألوان الخاص بك.'),
 });
 
 const layoutSchema = z.object({
-  roomDimensions: z.string().min(3, 'Room dimensions are required.'),
-  selectedFurniture: z.string().min(10, 'Please list the furniture you have selected.'),
+  roomDimensions: z.string().min(3, 'أبعاد الغرفة مطلوبة.'),
+  selectedFurniture: z.string().min(10, 'يرجى ذكر الأثاث الذي اخترته.'),
   stylePreferences: z.string().optional(),
   photo: z.any().optional(),
 });
@@ -113,14 +113,14 @@ export default function ArToolClient() {
   return (
     <Tabs defaultValue="suggestions" className="w-full">
       <TabsList className="mx-auto grid w-full max-w-lg grid-cols-2">
-        <TabsTrigger value="suggestions">Suggest Furniture</TabsTrigger>
-        <TabsTrigger value="layout">Optimize Layout</TabsTrigger>
+        <TabsTrigger value="suggestions">اقتراح أثاث</TabsTrigger>
+        <TabsTrigger value="layout">تحسين التخطيط</TabsTrigger>
       </TabsList>
       <TabsContent value="suggestions">
         <Card>
           <CardHeader>
-            <CardTitle className="font-headline text-2xl">Furniture Suggestions</CardTitle>
-            <p className="text-muted-foreground">Upload a photo of your room, and let our AI find the perfect furniture for you.</p>
+            <CardTitle className="font-headline text-2xl">اقتراحات الأثاث</CardTitle>
+            <p className="text-muted-foreground">قم بتحميل صورة لغرفتك، ودع الذكاء الاصطناعي يجد لك الأثاث المثالي.</p>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
@@ -132,7 +132,7 @@ export default function ArToolClient() {
                       name="photo"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Room Photo</FormLabel>
+                          <FormLabel>صورة الغرفة</FormLabel>
                           <FormControl>
                             <Input type="file" accept="image/*" onChange={(e) => {
                                 field.onChange(e.target.files);
@@ -151,9 +151,9 @@ export default function ArToolClient() {
                       name="stylePreferences"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Style Preferences</FormLabel>
+                          <FormLabel>تفضيلات الأسلوب</FormLabel>
                           <FormControl>
-                            <Input placeholder="e.g., Mid-century Modern, Scandinavian" {...field} />
+                            <Input placeholder="مثال: مودرن منتصف القرن، اسكندنافي" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -164,17 +164,17 @@ export default function ArToolClient() {
                       name="colorSchemes"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Preferred Color Schemes</FormLabel>
+                          <FormLabel>الألوان المفضلة</FormLabel>
                           <FormControl>
-                            <Input placeholder="e.g., Earth tones, pastels, monochrome" {...field} />
+                            <Input placeholder="مثال: ألوان ترابية، باستيل، أحادي اللون" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
                     <Button type="submit" disabled={suggestionLoading} className="w-full">
-                      {suggestionLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Wand2 className="mr-2 h-4 w-4" />}
-                      Get Suggestions
+                      {suggestionLoading ? <Loader2 className="ms-2 h-4 w-4 animate-spin" /> : <Wand2 className="ms-2 h-4 w-4" />}
+                      الحصول على اقتراحات
                     </Button>
                   </form>
                 </Form>
@@ -184,20 +184,20 @@ export default function ArToolClient() {
                   {suggestionLoading && (
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="text-center">
                       <Loader2 className="mx-auto h-12 w-12 animate-spin text-primary" />
-                      <p className="mt-4 font-semibold">Analyzing your space...</p>
+                      <p className="mt-4 font-semibold">جاري تحليل مساحتك...</p>
                     </motion.div>
                   )}
                   {suggestionResult && (
-                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="w-full text-left">
-                      <h3 className="font-headline text-xl font-bold">AI Suggestions</h3>
+                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="w-full text-start">
+                      <h3 className="font-headline text-xl font-bold">اقتراحات الذكاء الاصطناعي</h3>
                       <div className="mt-4 space-y-4 text-sm">
                         <div>
-                            <h4 className="font-semibold flex items-center"><Lightbulb className="w-4 h-4 mr-2 text-primary" />Reasoning</h4>
-                            <p className="text-muted-foreground pl-6">{suggestionResult.reasoning}</p>
+                            <h4 className="font-semibold flex items-center"><Lightbulb className="w-4 h-4 ms-2 text-primary" />السبب</h4>
+                            <p className="text-muted-foreground ps-6">{suggestionResult.reasoning}</p>
                         </div>
                         <div>
-                            <h4 className="font-semibold flex items-center"><Wand2 className="w-4 h-4 mr-2 text-primary" />Suggestions</h4>
-                            <p className="text-muted-foreground whitespace-pre-wrap pl-6">{suggestionResult.furnitureSuggestions}</p>
+                            <h4 className="font-semibold flex items-center"><Wand2 className="w-4 h-4 ms-2 text-primary" />الاقتراحات</h4>
+                            <p className="text-muted-foreground whitespace-pre-wrap ps-6">{suggestionResult.furnitureSuggestions}</p>
                         </div>
                       </div>
                     </motion.div>
@@ -205,7 +205,7 @@ export default function ArToolClient() {
                   {!suggestionLoading && !suggestionResult && (
                     <div className="text-center text-muted-foreground">
                         <Wand2 className="mx-auto h-12 w-12" />
-                        <p className="mt-4 font-semibold">Your AI-powered suggestions will appear here.</p>
+                        <p className="mt-4 font-semibold">ستظهر اقتراحاتك المدعومة بالذكاء الاصطناعي هنا.</p>
                     </div>
                   )}
                 </AnimatePresence>
@@ -217,8 +217,8 @@ export default function ArToolClient() {
       <TabsContent value="layout">
       <Card>
           <CardHeader>
-            <CardTitle className="font-headline text-2xl">Layout Optimization</CardTitle>
-            <p className="text-muted-foreground">Provide your room details and let our AI find the best furniture arrangement.</p>
+            <CardTitle className="font-headline text-2xl">تحسين التخطيط</CardTitle>
+            <p className="text-muted-foreground">قدم تفاصيل غرفتك ودع الذكاء الاصطناعي يجد أفضل ترتيب للأثاث.</p>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
@@ -230,9 +230,9 @@ export default function ArToolClient() {
                       name="roomDimensions"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Room Dimensions</FormLabel>
+                          <FormLabel>أبعاد الغرفة</FormLabel>
                           <FormControl>
-                            <Input placeholder="e.g., 12ft x 15ft with 8ft ceiling" {...field} />
+                            <Input placeholder="مثال: 12 قدم × 15 قدم مع سقف 8 أقدام" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -243,9 +243,9 @@ export default function ArToolClient() {
                       name="selectedFurniture"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Selected Furniture & Dimensions</FormLabel>
+                          <FormLabel>الأثاث المختار وأبعاده</FormLabel>
                           <FormControl>
-                            <Textarea placeholder="e.g., Sofa: 7ft x 3ft, Coffee Table: 4ft x 2ft" className="min-h-[100px]" {...field} />
+                            <Textarea placeholder="مثال: أريكة: 7 قدم × 3 قدم، طاولة قهوة: 4 قدم × 2 قدم" className="min-h-[100px]" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -256,9 +256,9 @@ export default function ArToolClient() {
                       name="stylePreferences"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Style Preferences (Optional)</FormLabel>
+                          <FormLabel>تفضيلات الأسلوب (اختياري)</FormLabel>
                           <FormControl>
-                            <Input placeholder="e.g., Open and airy, cozy, functional" {...field} />
+                            <Input placeholder="مثال: مفتوح ومتجدد الهواء، مريح، عملي" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -269,8 +269,8 @@ export default function ArToolClient() {
                       name="photo"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Room Photo (Optional)</FormLabel>
-                           <FormDescription>Providing a photo can improve layout accuracy.</FormDescription>
+                          <FormLabel>صورة الغرفة (اختياري)</FormLabel>
+                           <FormDescription>توفير صورة يمكن أن يحسن دقة التخطيط.</FormDescription>
                           <FormControl>
                            <Input type="file" accept="image/*" onChange={(e) => {
                                 field.onChange(e.target.files);
@@ -285,8 +285,8 @@ export default function ArToolClient() {
                       )}
                     />
                     <Button type="submit" disabled={layoutLoading} className="w-full">
-                      {layoutLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Wand2 className="mr-2 h-4 w-4" />}
-                      Optimize Layout
+                      {layoutLoading ? <Loader2 className="ms-2 h-4 w-4 animate-spin" /> : <Wand2 className="ms-2 h-4 w-4" />}
+                      تحسين التخطيط
                     </Button>
                   </form>
                 </Form>
@@ -296,12 +296,12 @@ export default function ArToolClient() {
                   {layoutLoading && (
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="text-center">
                       <Loader2 className="mx-auto h-12 w-12 animate-spin text-primary" />
-                      <p className="mt-4 font-semibold">Optimizing your layout...</p>
+                      <p className="mt-4 font-semibold">جاري تحسين التخطيط الخاص بك...</p>
                     </motion.div>
                   )}
                   {layoutResult && (
-                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="w-full text-left">
-                      <h3 className="font-headline text-xl font-bold">Optimized Layout Plan</h3>
+                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="w-full text-start">
+                      <h3 className="font-headline text-xl font-bold">خطة التخطيط المحسنة</h3>
                        <div className="mt-4 space-y-4 text-sm prose-p:text-muted-foreground prose-p:m-0 prose-strong:text-foreground">
                          <p className="whitespace-pre-wrap">{layoutResult.layoutDescription}</p>
                        </div>
@@ -310,7 +310,7 @@ export default function ArToolClient() {
                   {!layoutLoading && !layoutResult && (
                     <div className="text-center text-muted-foreground">
                         <Wand2 className="mx-auto h-12 w-12" />
-                        <p className="mt-4 font-semibold">Your optimal furniture layout will appear here.</p>
+                        <p className="mt-4 font-semibold">سيظهر تخطيط الأثاث الأمثل هنا.</p>
                     </div>
                   )}
                 </AnimatePresence>

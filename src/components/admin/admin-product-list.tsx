@@ -18,20 +18,20 @@ export default function AdminProductList() {
   return (
     <Card>
         <CardHeader>
-            <CardTitle>All Products</CardTitle>
+            <CardTitle>كل المنتجات</CardTitle>
         </CardHeader>
         <CardContent>
             <Table>
             <TableHeader>
                 <TableRow>
                 <TableHead className="hidden w-[100px] sm:table-cell">
-                    <span className="sr-only">Image</span>
+                    <span className="sr-only">صورة</span>
                 </TableHead>
-                <TableHead>Name</TableHead>
-                <TableHead>Category</TableHead>
-                <TableHead>Price</TableHead>
+                <TableHead>الاسم</TableHead>
+                <TableHead>الفئة</TableHead>
+                <TableHead>السعر</TableHead>
                 <TableHead>
-                    <span className="sr-only">Actions</span>
+                    <span className="sr-only">الإجراءات</span>
                 </TableHead>
                 </TableRow>
             </TableHeader>
@@ -55,7 +55,7 @@ export default function AdminProductList() {
                     <TableCell>
                         {product.price.type === "fixed"
                             ? `$${product.price.value?.toFixed(2)}`
-                            : "On Demand"}
+                            : "عند الطلب"}
                     </TableCell>
                     <TableCell>
                     <DropdownMenu>
@@ -66,9 +66,9 @@ export default function AdminProductList() {
                         </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
-                        <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                        <DropdownMenuItem>Edit</DropdownMenuItem>
-                        <DropdownMenuItem>Delete</DropdownMenuItem>
+                        <DropdownMenuLabel>الإجراءات</DropdownMenuLabel>
+                        <DropdownMenuItem>تعديل</DropdownMenuItem>
+                        <DropdownMenuItem>حذف</DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>
                     </TableCell>

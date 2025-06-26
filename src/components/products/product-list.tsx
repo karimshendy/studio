@@ -9,18 +9,18 @@ interface ProductListProps {
   products: Product[];
 }
 
-const categories: ['All', ...ProductCategory[]] = [
-  'All',
-  'Furniture',
-  'Kitchens',
-  'Dressing Rooms',
+const categories: ['الكل', ...ProductCategory[]] = [
+  'الكل',
+  'أثاث',
+  'مطابخ',
+  'غرف ملابس',
 ];
 
 export default function ProductList({ products }: ProductListProps) {
-  const [activeTab, setActiveTab] = useState<string>('All');
+  const [activeTab, setActiveTab] = useState<string>('الكل');
 
   const filteredProducts =
-    activeTab === 'All'
+    activeTab === 'الكل'
       ? products
       : products.filter((product) => product.category === activeTab);
 
@@ -41,8 +41,8 @@ export default function ProductList({ products }: ProductListProps) {
       </div>
        {filteredProducts.length === 0 && (
           <div className="col-span-full py-24 text-center">
-            <h3 className="font-headline text-2xl">No products found</h3>
-            <p className="text-muted-foreground">Try selecting another category.</p>
+            <h3 className="font-headline text-2xl">لم يتم العثور على منتجات</h3>
+            <p className="text-muted-foreground">حاول تحديد فئة أخرى.</p>
           </div>
         )}
     </Tabs>

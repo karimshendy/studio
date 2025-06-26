@@ -6,10 +6,9 @@ export default function QuotePage() {
     <div className="container mx-auto flex min-h-[80vh] items-center justify-center py-12">
       <Card className="w-full max-w-2xl shadow-lg">
         <CardHeader className="text-center">
-          <CardTitle className="font-headline text-4xl">Get a Free Quote</CardTitle>
+          <CardTitle className="font-headline text-4xl">احصل على عرض سعر مجاني</CardTitle>
           <CardDescription className="text-lg">
-            Tell us about your project, and we'll get back to you with a
-            personalized quote.
+            أخبرنا عن مشروعك، وسنعاود الاتصال بك بعرض أسعار مخصص.
           </CardDescription>
         </CardHeader>
         <CardContent>

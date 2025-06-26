@@ -19,11 +19,11 @@ import { Loader2 } from 'lucide-react';
 import { useState } from 'react';
 
 const quoteFormSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters.'),
-  phone: z.string().min(10, 'Please enter a valid phone number.'),
-  city: z.string().min(2, 'City is required.'),
+  name: z.string().min(2, 'يجب أن يتكون الاسم من حرفين على الأقل.'),
+  phone: z.string().min(10, 'يرجى إدخال رقم هاتف صالح.'),
+  city: z.string().min(2, 'المدينة مطلوبة.'),
   measurements: z.string().optional(),
-  projectDetails: z.string().min(20, 'Please provide some details about your project.'),
+  projectDetails: z.string().min(20, 'يرجى تقديم بعض التفاصيل حول مشروعك.'),
   images: z.any().optional(),
 });
 
@@ -50,8 +50,8 @@ export default function QuoteForm() {
     console.log(data);
     setIsSubmitting(false);
     toast({
-      title: 'Quote Request Submitted!',
-      description: 'Thank you! We have received your request and will be in touch shortly.',
+      title: 'تم إرسال طلب عرض السعر بنجاح!',
+      description: 'شكرًا لك! لقد تلقينا طلبك وسنتواصل معك قريبًا.',
     });
     form.reset();
   }
@@ -65,9 +65,9 @@ export default function QuoteForm() {
             name="name"
             render={({ field }) => (
                 <FormItem>
-                <FormLabel>Full Name</FormLabel>
+                <FormLabel>الاسم الكامل</FormLabel>
                 <FormControl>
-                    <Input placeholder="John Doe" {...field} />
+                    <Input placeholder="فلان الفلاني" {...field} />
                 </FormControl>
                 <FormMessage />
                 </FormItem>
@@ -78,9 +78,9 @@ export default function QuoteForm() {
             name="phone"
             render={({ field }) => (
                 <FormItem>
-                <FormLabel>Phone Number</FormLabel>
+                <FormLabel>رقم الهاتف</FormLabel>
                 <FormControl>
-                    <Input placeholder="(123) 456-7890" {...field} />
+                    <Input placeholder="XXX-XXX-XXXX" {...field} />
                 </FormControl>
                 <FormMessage />
                 </FormItem>
@@ -92,9 +92,9 @@ export default function QuoteForm() {
             name="city"
             render={({ field }) => (
                 <FormItem>
-                <FormLabel>City</FormLabel>
+                <FormLabel>المدينة</FormLabel>
                 <FormControl>
-                    <Input placeholder="New York" {...field} />
+                    <Input placeholder="الرياض" {...field} />
                 </FormControl>
                 <FormMessage />
                 </FormItem>
@@ -105,9 +105,9 @@ export default function QuoteForm() {
             name="measurements"
             render={({ field }) => (
                 <FormItem>
-                <FormLabel>Space Measurements (Optional)</FormLabel>
+                <FormLabel>قياسات المساحة (اختياري)</FormLabel>
                 <FormControl>
-                    <Input placeholder="e.g., Living Room: 15ft x 20ft" {...field} />
+                    <Input placeholder="مثال: غرفة المعيشة: 15 قدم × 20 قدم" {...field} />
                 </FormControl>
                 <FormMessage />
                 </FormItem>
@@ -118,10 +118,10 @@ export default function QuoteForm() {
           name="projectDetails"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Project Details</FormLabel>
+              <FormLabel>تفاصيل المشروع</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="Describe your project, style preferences, and any specific items you're interested in."
+                  placeholder="صف مشروعك وتفضيلات الأسلوب وأي عناصر محددة تهتم بها."
                   className="min-h-[120px]"
                   {...field}
                 />
@@ -135,7 +135,7 @@ export default function QuoteForm() {
           name="images"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Upload Images (Optional)</FormLabel>
+              <FormLabel>تحميل الصور (اختياري)</FormLabel>
               <FormControl>
                 <Input type="file" multiple {...field} />
               </FormControl>
@@ -144,8 +144,8 @@ export default function QuoteForm() {
           )}
         />
         <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
-            {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-            Get Free Quote
+            {isSubmitting && <Loader2 className="ms-2 h-4 w-4 animate-spin" />}
+            احصل على عرض سعر مجاني
         </Button>
       </form>
     </Form>

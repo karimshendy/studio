@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import {
-  ArrowRight,
+  ArrowLeft,
   Sofa,
   CookingPot,
   Shirt,
@@ -15,9 +15,9 @@ import ProductCard from '@/components/products/product-card';
 const featuredProducts = products.slice(0, 3);
 
 const categoryIcons = {
-  Furniture: <Sofa className="h-10 w-10 text-primary" />,
-  Kitchens: <CookingPot className="h-10 w-10 text-primary" />,
-  'Dressing Rooms': <Shirt className="h-10 w-10 text-primary" />,
+  'أثاث': <Sofa className="h-10 w-10 text-primary" />,
+  'مطابخ': <CookingPot className="h-10 w-10 text-primary" />,
+  'غرف ملابس': <Shirt className="h-10 w-10 text-primary" />,
 };
 
 export default function Home() {
@@ -34,22 +34,22 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white">
           <h1 className="font-headline text-5xl font-bold md:text-7xl">
-            Manzil
+            منزل
           </h1>
           <p className="mt-4 max-w-2xl text-lg md:text-xl">
-            Your Home, Reimagined.
+            منزلك، بتصور جديد.
           </p>
           <p className="mt-2 max-w-2xl text-base md:text-lg">
-            Bespoke furniture and interior design that tells your story.
+            أثاث وتصميم داخلي مخصص يروي قصتك.
           </p>
           <div className="mt-8 flex gap-4">
             <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
               <Link href="/products">
-                Explore Our Collection <ArrowRight className="ml-2 h-5 w-5" />
+                اكتشف مجموعتنا <ArrowLeft className="ms-2 h-5 w-5" />
               </Link>
             </Button>
             <Button asChild size="lg" variant="secondary">
-              <Link href="/ar-designer">AI Designer Tool</Link>
+              <Link href="/ar-designer">أداة المصمم الذكي</Link>
             </Button>
           </div>
         </div>
@@ -60,14 +60,10 @@ export default function Home() {
           <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
             <div>
               <h2 className="font-headline text-4xl font-bold">
-                Crafting Spaces, Creating Comfort
+                نصنع المساحات، نخلق الراحة
               </h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                At Manzil, we believe that a home is more than just a place to
-                live; it's a sanctuary that reflects your personality and
-                style. Our mission is to provide you with high-quality,
-                beautifully crafted furniture and design solutions that
-                transform your space into a true home.
+                في منزل، نؤمن بأن المنزل هو أكثر من مجرد مكان للعيش؛ إنه ملاذ يعكس شخصيتك وأسلوبك. مهمتنا هي أن نوفر لك أثاثًا عالي الجودة ومصممًا بشكل جميل وحلول تصميم تحول مساحتك إلى منزل حقيقي.
               </p>
               <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
                 {Object.entries(categoryIcons).map(([category, icon]) => (
@@ -97,11 +93,10 @@ export default function Home() {
       <section className="bg-secondary/50 py-20">
         <div className="container mx-auto text-center">
           <h2 className="font-headline text-4xl font-bold">
-            Featured Products
+            منتجات مميزة
           </h2>
           <p className="mx-auto mt-2 max-w-2xl text-lg text-muted-foreground">
-            Handpicked designs that blend timeless elegance with modern
-            functionality.
+            تصاميم مختارة بعناية تمزج بين الأناقة الخالدة والوظائف العصرية.
           </p>
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {featuredProducts.map((product) => (
@@ -110,7 +105,7 @@ export default function Home() {
           </div>
           <Button asChild size="lg" className="mt-12">
             <Link href="/products">
-              View All Products <ArrowRight className="ml-2 h-5 w-5" />
+              عرض كل المنتجات <ArrowLeft className="ms-2 h-5 w-5" />
             </Link>
           </Button>
         </div>
@@ -122,17 +117,14 @@ export default function Home() {
             <div className="grid grid-cols-1 items-center md:grid-cols-2">
               <div className="p-12">
                 <h2 className="font-headline text-4xl font-bold">
-                  Visualize Your Dream Room
+                  تخيل غرفة أحلامك
                 </h2>
                 <p className="mt-4 text-lg text-primary-foreground/80">
-                  Struggling to imagine how our furniture will fit in your
-                  space? Our revolutionary AI-powered AR tool lets you see it
-                  before you buy. Get suggestions, optimize layouts, and design
-                  with confidence.
+                  هل تجد صعوبة في تخيل كيف سيبدو أثاثنا في مساحتك؟ تتيح لك أداة الواقع المعزز الثورية والمدعومة بالذكاء الاصطناعي رؤيته قبل الشراء. احصل على اقتراحات، وحسّن التخطيطات، وصمم بثقة.
                 </p>
                 <Button asChild size="lg" variant="secondary" className="mt-8">
                   <Link href="/ar-designer">
-                    Try The AI Designer <ArrowRight className="ml-2 h-5 w-5" />
+                    جرب المصمم الذكي <ArrowLeft className="ms-2 h-5 w-5" />
                   </Link>
                 </Button>
               </div>

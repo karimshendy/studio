@@ -6,9 +6,9 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 
 export const metadata: Metadata = {
-  title: 'Manzil - Your Home, Reimagined',
+  title: 'منزل - منزلك، بتصور جديد',
   description:
-    'Discover bespoke furniture and design solutions with Manzil. Use our AI-powered tools to visualize your perfect space.',
+    'اكتشف أثاثًا وتصميمات مخصصة مع منزل. استخدم أدواتنا المدعومة بالذكاء الاصطناعي لتتخيل مساحتك المثالية.',
 };
 
 export default function RootLayout({
@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="ar" dir="rtl" className="scroll-smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -26,7 +26,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=PT+Sans:wght@400;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap"
           rel="stylesheet"
         />
       </head>

@@ -1,4 +1,4 @@
-export type ProductCategory = 'Furniture' | 'Kitchens' | 'Dressing Rooms';
+export type ProductCategory = 'أثاث' | 'مطابخ' | 'غرف ملابس';
 
 export type Product = {
   id: number;

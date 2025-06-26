@@ -8,10 +8,10 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/products', label: 'Products' },
-  { href: '/ar-designer', label: 'AI Designer' },
-  { href: '/admin', label: 'Admin' },
+  { href: '/', label: 'الرئيسية' },
+  { href: '/products', label: 'المنتجات' },
+  { href: '/ar-designer', label: 'المصمم الذكي' },
+  { href: '/admin', label: 'لوحة التحكم' },
 ];
 
 export default function Header() {
@@ -20,14 +20,14 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
-        <div className="mr-4 flex">
-          <Link href="/" className="flex items-center space-x-2">
+        <div className="me-4 flex">
+          <Link href="/" className="flex items-center space-x-2 rtl:space-x-reverse">
             <Sofa className="h-8 w-8 text-primary" />
-            <span className="font-headline text-2xl font-bold">Manzil</span>
+            <span className="font-headline text-2xl font-bold">منزل</span>
           </Link>
         </div>
-        <div className="flex flex-1 items-center justify-end space-x-2">
-          <nav className="hidden items-center space-x-6 text-sm font-medium md:flex">
+        <div className="flex flex-1 items-center justify-end space-x-2 rtl:space-x-reverse">
+          <nav className="hidden items-center space-x-6 text-sm font-medium md:flex rtl:space-x-reverse">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -40,7 +40,7 @@ export default function Header() {
           </nav>
           <div className="hidden md:flex">
             <Button asChild>
-              <Link href="/quote">Get a Quote</Link>
+              <Link href="/quote">اطلب عرض سعر</Link>
             </Button>
           </div>
           <div className="md:hidden">
@@ -69,7 +69,7 @@ export default function Header() {
               </Link>
             ))}
             <Button asChild className="mt-4" onClick={() => setIsMenuOpen(false)}>
-              <Link href="/quote">Get a Quote</Link>
+              <Link href="/quote">اطلب عرض سعر</Link>
             </Button>
           </nav>
         </div>

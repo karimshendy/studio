@@ -3,7 +3,7 @@ import Link from 'next/link';
 import type { Product } from '@/types';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 
 interface ProductCardProps {
   product: Product;
@@ -40,10 +40,10 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div className="text-lg font-semibold">
           {price.type === 'fixed'
             ? `$${price.value?.toFixed(2)}`
-            : 'On Demand'}
+            : 'عند الطلب'}
         </div>
         <Link href={`/products/${slug}`} className="flex items-center text-sm font-semibold text-primary hover:underline">
-          View Details <ArrowRight className="ml-1 h-4 w-4" />
+          عرض التفاصيل <ArrowLeft className="ms-1 h-4 w-4" />
         </Link>
       </CardFooter>
     </Card>
