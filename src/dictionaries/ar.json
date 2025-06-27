@@ -5,7 +5,6 @@
       "home": "الرئيسية",
       "products": "المنتجات",
       "arDesigner": "المصمم الذكي",
-      "admin": "لوحة التحكم",
       "getQuote": "اطلب عرض سعر"
     },
     "footer": {
@@ -53,10 +52,14 @@
     "productDetailsPage": {
       "priceOnDemand": "السعر عند الطلب",
       "productDetails": "تفاصيل المنتج",
-      "materials": "المواد:",
-      "dimensions": "الأبعاد:",
-      "availableColors": "الألوان المتاحة:",
-      "getFreeQuote": "اطلب عرض سعر مجاني"
+      "materials": "المواد",
+      "dimensions": "الأبعاد",
+      "availableColors": "الألوان المتاحة",
+      "getFreeQuote": "اطلب عرض سعر مجاني",
+      "customizeTitle": "خصّص منتجك",
+      "dimensionsPlaceholder": "أدخل الأبعاد المطلوبة (مثال: 2م عرض × 1.5م ارتفاع)",
+      "notesTitle": "ملاحظات إضافية",
+      "notesPlaceholder": "أي طلبات خاصة أو تفاصيل أخرى؟"
     },
     "arDesignerPage": {
       "title": "ستوديو المصمم الذكي",

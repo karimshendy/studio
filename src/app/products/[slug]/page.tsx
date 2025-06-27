@@ -1,14 +1,18 @@
-
 'use client';
 
-import { notFound } from 'next/navigation';
+import React, { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { products } from '@/lib/data';
+import { useState } from 'react';
 import type { Product } from '@/types';
 import ProductImageGallery from '@/components/products/product-image-gallery';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { CheckCircle } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Textarea } from '@/components/ui/textarea';
+import { Check } from 'lucide-react';
 import { useLanguage } from '@/context/language-context';
 
 export default function ProductDetailPage({ params }: { params: { slug: string } }) {
@@ -19,6 +23,34 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
   if (!product) {
     notFound();
   }
+
+  const availableMaterials = React.useMemo(() => product.details.materials.split(',').map(s => s.trim()), [product.details.materials]);
+
+  const [selectedColor, setSelectedColor] = useState<string>(product.details.colors[0]);
+  const [selectedMaterial, setSelectedMaterial] = useState<string>(availableMaterials[0]);
+  const [customDimensions, setCustomDimensions] = useState<string>('');
+  const [notes, setNotes] = useState<string>('');
+
+  const isConfigurable = product.details.dimensions.includes('قابل للتكوين') || product.details.dimensions.toLowerCase().includes('configurable');
+
+  const getQuoteLink = () => {
+    const query = new URLSearchParams();
+    query.set('product', product.name);
+    query.set('color', selectedColor);
+    query.set('material', selectedMaterial);
+    
+    if (isConfigurable && customDimensions) {
+      query.set('dimensions', customDimensions);
+    } else if (!isConfigurable) {
+      query.set('dimensions', product.details.dimensions);
+    }
+
+    if (notes) {
+      query.set('notes', notes);
+    }
+    return `/quote?${query.toString()}`;
+  }
+
 
   return (
     <div className="container mx-auto py-12">
@@ -41,38 +73,71 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
           </p>
           <div className="mt-8 rounded-lg border bg-secondary/30 p-6">
             <h3 className="font-headline text-xl font-semibold">
-              {t.productDetailsPage.productDetails}
+              {t.productDetailsPage.customizeTitle}
             </h3>
-            <ul className="mt-4 space-y-3">
-              <li className="flex items-start">
-                <CheckCircle className="me-3 mt-1 h-5 w-5 flex-shrink-0 text-primary" />
-                <span>
-                  <strong>{t.productDetailsPage.materials}</strong> {product.details.materials}
-                </span>
-              </li>
-              <li className="flex items-start">
-                <CheckCircle className="me-3 mt-1 h-5 w-5 flex-shrink-0 text-primary" />
-                <span>
-                  <strong>{t.productDetailsPage.dimensions}</strong> {product.details.dimensions}
-                </span>
-              </li>
-              <li className="flex items-start">
-                <CheckCircle className="me-3 mt-1 h-5 w-5 flex-shrink-0 text-primary" />
-                <div>
-                  <strong>{t.productDetailsPage.availableColors}</strong>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    {product.details.colors.map((color) => (
-                      <Badge key={color} variant="outline">
-                        {color}
-                      </Badge>
-                    ))}
-                  </div>
+            <div className="mt-4 space-y-6">
+              <div>
+                <Label className="font-semibold">{t.productDetailsPage.availableColors}</Label>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {product.details.colors.map((color) => (
+                    <Button
+                      key={color}
+                      variant={selectedColor === color ? 'default' : 'outline'}
+                      onClick={() => setSelectedColor(color)}
+                      className="gap-2"
+                    >
+                      {selectedColor === color && <Check className="h-4 w-4" />}
+                      {color}
+                    </Button>
+                  ))}
                 </div>
-              </li>
-            </ul>
+              </div>
+
+              <div>
+                <Label className="font-semibold">{t.productDetailsPage.materials}</Label>
+                 <RadioGroup
+                    value={selectedMaterial}
+                    onValueChange={setSelectedMaterial}
+                    className="mt-2 space-y-1"
+                  >
+                    {availableMaterials.map((material) => (
+                      <div key={material} className="flex items-center space-x-2 rtl:space-x-reverse">
+                        <RadioGroupItem value={material} id={`${product.id}-${material}`} />
+                        <Label htmlFor={`${product.id}-${material}`} className="cursor-pointer font-normal">{material}</Label>
+                      </div>
+                    ))}
+                  </RadioGroup>
+              </div>
+
+              <div>
+                <Label className="font-semibold">{t.productDetailsPage.dimensions}</Label>
+                {isConfigurable ? (
+                   <Input 
+                      className="mt-2"
+                      placeholder={t.productDetailsPage.dimensionsPlaceholder}
+                      value={customDimensions}
+                      onChange={(e) => setCustomDimensions(e.target.value)}
+                    />
+                ) : (
+                  <p className="mt-2 text-muted-foreground">{product.details.dimensions}</p>
+                )}
+              </div>
+              
+               <div>
+                  <Label htmlFor="notes" className="font-semibold">{t.productDetailsPage.notesTitle}</Label>
+                  <Textarea
+                    id="notes"
+                    value={notes}
+                    onChange={(e) => setNotes(e.target.value)}
+                    placeholder={t.productDetailsPage.notesPlaceholder}
+                    className="mt-2"
+                  />
+                </div>
+
+            </div>
           </div>
           <Button asChild size="lg" className="mt-8 w-full md:w-auto">
-            <Link href="/quote">{t.productDetailsPage.getFreeQuote}</Link>
+            <Link href={getQuoteLink()}>{t.productDetailsPage.getFreeQuote}</Link>
           </Button>
         </div>
       </div>

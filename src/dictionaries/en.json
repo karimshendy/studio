@@ -5,7 +5,6 @@
     "home": "Home",
     "products": "Products",
     "arDesigner": "Smart Designer",
-    "admin": "Dashboard",
     "getQuote": "Get a Quote"
   },
   "footer": {
@@ -53,10 +52,14 @@
   "productDetailsPage": {
     "priceOnDemand": "Price upon request",
     "productDetails": "Product Details",
-    "materials": "Materials:",
-    "dimensions": "Dimensions:",
-    "availableColors": "Available Colors:",
-    "getFreeQuote": "Request a Free Quote"
+    "materials": "Materials",
+    "dimensions": "Dimensions",
+    "availableColors": "Available Colors",
+    "getFreeQuote": "Request a Free Quote",
+    "customizeTitle": "Customize Your Product",
+    "dimensionsPlaceholder": "Enter desired dimensions (e.g., 2m W x 1.5m H)",
+    "notesTitle": "Additional Notes",
+    "notesPlaceholder": "Any special requests or other details?"
   },
   "arDesignerPage": {
     "title": "Smart Designer Studio",

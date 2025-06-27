@@ -17,19 +17,21 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/language-context';
+import { useSearchParams } from 'next/navigation';
 
 export default function QuoteForm() {
-    const { dictionary: t } = useLanguage();
+    const { dictionary: t, language } = useLanguage();
     const T = t.quoteForm;
+    const searchParams = useSearchParams();
 
     const quoteFormSchema = z.object({
         name: z.string().min(2, T.errors.name),
         phone: z.string().min(10, T.errors.phone),
         city: z.string().min(2, T.errors.city),
         measurements: z.string().optional(),
-        projectDetails: z.string().min(20, T.errors.details),
+        projectDetails: z.string().min(10, T.errors.details),
         images: z.any().optional(),
       });
       
@@ -47,6 +49,38 @@ export default function QuoteForm() {
       projectDetails: '',
     },
   });
+
+  useEffect(() => {
+    const productName = searchParams.get('product');
+    const color = searchParams.get('color');
+    const material = searchParams.get('material');
+    const dimensions = searchParams.get('dimensions');
+    const notes = searchParams.get('notes');
+
+    if (productName) {
+      const detailsAr = [
+        `طلب عرض سعر للمنتج: ${productName}`,
+        color && `اللون: ${color}`,
+        material && `المادة: ${material}`,
+        notes && `ملاحظات العميل: ${notes}`,
+      ].filter(Boolean).join('\n') + '\n\n';
+
+      const detailsEn = [
+        `Quote request for product: ${productName}`,
+        color && `Color: ${color}`,
+        material && `Material: ${material}`,
+        notes && `Customer notes: ${notes}`,
+      ].filter(Boolean).join('\n') + '\n\n';
+      
+      const currentDetails = form.getValues('projectDetails');
+      form.setValue('projectDetails', (language === 'ar' ? detailsAr : detailsEn) + currentDetails);
+    }
+    
+    if (dimensions) {
+        form.setValue('measurements', dimensions);
+    }
+  }, [searchParams, form, language]);
+
 
   async function onSubmit(data: QuoteFormValues) {
     setIsSubmitting(true);
