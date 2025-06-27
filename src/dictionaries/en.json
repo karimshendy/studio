@@ -135,8 +135,14 @@
   },
   "adminPage": {
     "title": "Dashboard",
-    "description": "Manage your product catalog.",
-    "addProduct": "Add Product"
+    "description": "Manage products, orders, and customers.",
+    "addProduct": "Add Product",
+    "stats": {
+      "totalRevenue": "Total Revenue",
+      "totalProducts": "Total Products",
+      "subscriptions": "Quote Requests",
+      "sales": "New Customers"
+    }
   },
   "adminProductList": {
     "allProducts": "All Products",
@@ -149,5 +155,30 @@
     "edit": "Edit",
     "delete": "Delete",
     "onDemand": "On Demand"
+  },
+  "addProductDialog": {
+    "title": "Add New Product",
+    "description": "Fill in the details below to add a new product to your catalog.",
+    "successTitle": "Product Added!",
+    "successDescription": "The new product has been successfully added to the catalog.",
+    "form": {
+      "name": "Product Name",
+      "namePlaceholder": "e.g., Modern Sofa",
+      "category": "Category",
+      "categoryPlaceholder": "Select a category",
+      "description": "Description",
+      "descriptionPlaceholder": "Enter a detailed product description...",
+      "materials": "Materials",
+      "materialsPlaceholder": "e.g., Oak wood, fabric",
+      "dimensions": "Dimensions",
+      "dimensionsPlaceholder": "e.g., 84\" W x 35\" D",
+      "colors": "Colors (comma-separated)",
+      "colorsPlaceholder": "e.g., Beige, Gray, Blue",
+      "price": "Price (Optional)",
+      "pricePlaceholder": "e.g., 1899.99",
+      "cancel": "Cancel",
+      "save": "Save Product",
+      "saving": "Saving..."
+    }
   }
 }

@@ -135,8 +135,14 @@
     },
     "adminPage": {
       "title": "لوحة التحكم",
-      "description": "إدارة كتالوج المنتجات الخاصة بك.",
-      "addProduct": "إضافة منتج"
+      "description": "إدارة المنتجات، الطلبات، والعملاء.",
+      "addProduct": "إضافة منتج",
+      "stats": {
+        "totalRevenue": "إجمالي الإيرادات",
+        "totalProducts": "إجمالي المنتجات",
+        "subscriptions": "طلبات الأسعار",
+        "sales": "العملاء الجدد"
+      }
     },
     "adminProductList": {
       "allProducts": "كل المنتجات",
@@ -149,5 +155,30 @@
       "edit": "تعديل",
       "delete": "حذف",
       "onDemand": "عند الطلب"
+    },
+    "addProductDialog": {
+      "title": "إضافة منتج جديد",
+      "description": "املأ التفاصيل أدناه لإضافة منتج جديد إلى الكتالوج الخاص بك.",
+      "successTitle": "تمت إضافة المنتج!",
+      "successDescription": "تمت إضافة المنتج الجديد بنجاح إلى الكتالوج.",
+      "form": {
+        "name": "اسم المنتج",
+        "namePlaceholder": "مثال: أريكة عصرية",
+        "category": "الفئة",
+        "categoryPlaceholder": "اختر فئة",
+        "description": "الوصف",
+        "descriptionPlaceholder": "أدخل وصفًا تفصيليًا للمنتج...",
+        "materials": "المواد",
+        "materialsPlaceholder": "مثال: خشب البلوط, قماش",
+        "dimensions": "الأبعاد",
+        "dimensionsPlaceholder": "مثال: 84\" عرض × 35\" عمق",
+        "colors": "الألوان (مفصولة بفاصلة)",
+        "colorsPlaceholder": "مثال: بيج, رمادي, أزرق",
+        "price": "السعر (اختياري)",
+        "pricePlaceholder": "مثال: 1899.99",
+        "cancel": "إلغاء",
+        "save": "حفظ المنتج",
+        "saving": "جاري الحفظ..."
+      }
     }
 }
