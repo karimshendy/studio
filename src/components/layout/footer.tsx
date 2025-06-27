@@ -1,8 +1,25 @@
+
 'use client';
 
 import Link from 'next/link';
-import { Home, Twitter, Facebook, Instagram } from 'lucide-react';
+import { Twitter, Facebook, Instagram } from 'lucide-react';
 import { useLanguage } from '@/context/language-context';
+
+const LogoIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+    </svg>
+  );
 
 export default function Footer() {
   const { dictionary: t } = useLanguage();
@@ -13,7 +30,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div className="flex flex-col">
             <Link href="/" className="flex items-center space-x-2 rtl:space-x-reverse">
-              <Home className="h-8 w-8 text-primary" />
+              <LogoIcon className="h-8 w-8 text-primary" />
               <span className="font-headline text-2xl font-bold">{t.footer.title}</span>
             </Link>
             <p className="mt-4 text-muted-foreground">
