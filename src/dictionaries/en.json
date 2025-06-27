@@ -54,7 +54,7 @@
     "productDetails": "Product Details",
     "materials": "Surfaces",
     "dimensions": "Dimensions",
-    "getFreeQuote": "Request a Free Quote",
+    "getFreeQuote": "Get a Quote",
     "customizeTitle": "Customize Your Product",
     "dimensionsPlaceholder": "Enter desired dimensions (e.g., 2m W x 1.5m H)",
     "notesTitle": "Additional Notes",
@@ -109,7 +109,7 @@
     }
   },
   "quotePage": {
-    "title": "Get a Free Quote",
+    "title": "Get a Quote",
     "description": "Tell us about your project, and we'll get back to you with a custom quote."
   },
   "quoteForm": {
@@ -124,7 +124,7 @@
     "projectDetails": "Project Details",
     "detailsPlaceholder": "Describe your project, style preferences, and any specific items you're interested in.",
     "uploadImages": "Upload Images (Optional)",
-    "getFreeQuote": "Get a Free Quote",
+    "getFreeQuote": "Get a Quote",
     "submitting": "Submitting...",
     "successTitle": "Quote Request Sent Successfully!",
     "successDescription": "Thank you! We've received your request and will be in touch soon.",
