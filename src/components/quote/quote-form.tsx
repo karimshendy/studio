@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useForm } from 'react-hook-form';
@@ -20,6 +19,7 @@ import { Loader2 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/language-context';
 import { useSearchParams } from 'next/navigation';
+import Image from 'next/image';
 
 export default function QuoteForm() {
     const { dictionary: t, language } = useLanguage();
@@ -38,6 +38,7 @@ export default function QuoteForm() {
     type QuoteFormValues = z.infer<typeof quoteFormSchema>;
 
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [roomImagePreview, setRoomImagePreview] = useState<string | null>(null);
     const { toast } = useToast();
     const form = useForm<QuoteFormValues>({
     resolver: zodResolver(quoteFormSchema),
@@ -51,6 +52,11 @@ export default function QuoteForm() {
   });
 
   useEffect(() => {
+    const roomImageDataUri = sessionStorage.getItem('roomImageForQuote');
+    if (roomImageDataUri) {
+      setRoomImagePreview(roomImageDataUri);
+    }
+
     const productName = searchParams.get('product');
     const material = searchParams.get('material');
     const dimensions = searchParams.get('dimensions');
@@ -81,20 +87,37 @@ export default function QuoteForm() {
 
   async function onSubmit(data: QuoteFormValues) {
     setIsSubmitting(true);
+    
+    const roomImageDataUri = sessionStorage.getItem('roomImageForQuote');
+    const submissionData = {
+      ...data,
+      roomImageFromProductPage: roomImageDataUri,
+    };
+    
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 2000));
-    console.log(data);
+    console.log(submissionData);
     setIsSubmitting(false);
     toast({
       title: T.successTitle,
       description: T.successDescription,
     });
     form.reset();
+    sessionStorage.removeItem('roomImageForQuote');
+    setRoomImagePreview(null);
   }
 
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        {roomImagePreview && (
+            <div className="space-y-2">
+                <Label>صورة الغرفة من صفحة المنتج:</Label>
+                <div className="relative h-48 w-48 rounded-md border">
+                    <Image src={roomImagePreview} alt="معاينة صورة الغرفة" layout="fill" objectFit="cover" className="rounded-md" />
+                </div>
+            </div>
+        )}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <FormField
             control={form.control}
@@ -169,11 +192,18 @@ export default function QuoteForm() {
         <FormField
           control={form.control}
           name="images"
-          render={({ field }) => (
+          render={({ field: { onChange, onBlur, name, ref } }) => (
             <FormItem>
               <FormLabel>{T.uploadImages}</FormLabel>
               <FormControl>
-                <Input type="file" multiple {...field} />
+                <Input
+                  type="file"
+                  multiple
+                  onChange={(e) => onChange(e.target.files)}
+                  onBlur={onBlur}
+                  name={name}
+                  ref={ref}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>

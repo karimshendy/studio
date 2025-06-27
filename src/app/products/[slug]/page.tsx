@@ -1,8 +1,7 @@
 'use client';
 
-import { useParams, notFound } from 'next/navigation';
+import { useParams, notFound, useRouter } from 'next/navigation';
 import React, { useState } from 'react';
-import Link from 'next/link';
 import { products } from '@/lib/data';
 import type { Product } from '@/types';
 import ProductImageGallery from '@/components/products/product-image-gallery';
@@ -17,6 +16,7 @@ import { useLanguage } from '@/context/language-context';
 export default function ProductDetailPage() {
   const { dictionary: t } = useLanguage();
   const params = useParams();
+  const router = useRouter();
   const slug = params.slug as string;
   
   const product = products.find((p) => p.slug === slug);
@@ -30,10 +30,31 @@ export default function ProductDetailPage() {
   const [selectedMaterial, setSelectedMaterial] = useState<string>(availableMaterials[0]);
   const [customDimensions, setCustomDimensions] = useState<string>('');
   const [notes, setNotes] = useState<string>('');
+  const [roomImage, setRoomImage] = useState<File | null>(null);
 
   const isConfigurable = product.details.dimensions.includes('قابل للتكوين') || product.details.dimensions.toLowerCase().includes('configurable');
 
-  const getQuoteLink = () => {
+  const fileToDataUri = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  };
+
+  const handleGetQuote = async () => {
+    if (roomImage) {
+      try {
+        const dataUri = await fileToDataUri(roomImage);
+        sessionStorage.setItem('roomImageForQuote', dataUri);
+      } catch (error) {
+        console.error('Failed to process room image:', error);
+      }
+    } else {
+      sessionStorage.removeItem('roomImageForQuote');
+    }
+
     const query = new URLSearchParams();
     query.set('product', product.name);
     query.set('material', selectedMaterial);
@@ -47,7 +68,7 @@ export default function ProductDetailPage() {
     if (notes) {
       query.set('notes', notes);
     }
-    return `/quote?${query.toString()}`;
+    router.push(`/quote?${query.toString()}`);
   }
 
 
@@ -62,10 +83,7 @@ export default function ProductDetailPage() {
           <h1 className="mt-2 font-headline text-5xl font-bold">
             {product.name}
           </h1>
-          <div className="mt-4 text-2xl font-semibold text-primary h-8">
-            {product.price.type === 'fixed' &&
-              `$${product.price.value?.toFixed(2)}`}
-          </div>
+          <div className="mt-4 text-2xl font-semibold text-primary h-8" />
           <p className="mt-6 text-lg text-muted-foreground">
             {product.description}
           </p>
@@ -104,6 +122,17 @@ export default function ProductDetailPage() {
                 )}
               </div>
               
+              <div>
+                <Label htmlFor="room-image" className="font-semibold">صورة الغرفة</Label>
+                <Input
+                  id="room-image"
+                  type="file"
+                  accept="image/*"
+                  className="mt-2"
+                  onChange={(e) => setRoomImage(e.target.files ? e.target.files[0] : null)}
+                />
+              </div>
+
                <div>
                   <Label htmlFor="notes" className="font-semibold">{t.productDetailsPage.notesTitle}</Label>
                   <Textarea
@@ -117,8 +146,8 @@ export default function ProductDetailPage() {
 
             </div>
           </div>
-          <Button asChild size="lg" className="mt-8 w-full md:w-auto">
-            <Link href={getQuoteLink()}>{t.productDetailsPage.getFreeQuote}</Link>
+          <Button onClick={handleGetQuote} size="lg" className="mt-8 w-full md:w-auto">
+            {t.productDetailsPage.getFreeQuote}
           </Button>
         </div>
       </div>
