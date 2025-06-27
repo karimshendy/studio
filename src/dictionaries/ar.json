@@ -58,7 +58,9 @@
       "customizeTitle": "خصّص منتجك",
       "dimensionsPlaceholder": "أدخل الأبعاد المطلوبة (مثال: 2م عرض × 1.5م ارتفاع)",
       "notesTitle": "ملاحظات إضافية",
-      "notesPlaceholder": "أي طلبات خاصة أو تفاصيل أخرى؟"
+      "notesPlaceholder": "أي طلبات خاصة أو تفاصيل أخرى؟",
+      "uploadRoomImage": "صورة الغرفة",
+      "cameraButton": "استخدم الكاميرا"
     },
     "arDesignerPage": {
       "title": "ستوديو المصمم الذكي",
@@ -180,5 +182,14 @@
         "save": "حفظ المنتج",
         "saving": "جاري الحفظ..."
       }
+    },
+    "cameraDialog": {
+      "title": "التقط صورة",
+      "cancel": "إلغاء",
+      "capture": "التقاط",
+      "capturing": "جاري الالتقاط...",
+      "requestingAccess": "جاري طلب الوصول إلى الكاميرا...",
+      "accessDeniedTitle": "تم رفض الوصول إلى الكاميرا",
+      "accessDeniedDescription": "يرجى تمكين أذونات الكاميرا في إعدادات متصفحك لاستخدام هذه الميزة."
     }
 }

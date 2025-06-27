@@ -58,7 +58,9 @@
     "customizeTitle": "Customize Your Product",
     "dimensionsPlaceholder": "Enter desired dimensions (e.g., 2m W x 1.5m H)",
     "notesTitle": "Additional Notes",
-    "notesPlaceholder": "Any special requests or other details?"
+    "notesPlaceholder": "Any special requests or other details?",
+    "uploadRoomImage": "Room Photo",
+    "cameraButton": "Use Camera"
   },
   "arDesignerPage": {
     "title": "Smart Designer Studio",
@@ -180,5 +182,14 @@
       "save": "Save Product",
       "saving": "Saving..."
     }
+  },
+  "cameraDialog": {
+    "title": "Take a Photo",
+    "cancel": "Cancel",
+    "capture": "Capture",
+    "capturing": "Capturing...",
+    "requestingAccess": "Requesting camera access...",
+    "accessDeniedTitle": "Camera Access Denied",
+    "accessDeniedDescription": "Please enable camera permissions in your browser settings to use this feature."
   }
 }
