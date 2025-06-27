@@ -1,4 +1,3 @@
-
 'use client';
 
 import Image from 'next/image';
@@ -43,10 +42,9 @@ export default function ProductCard({ product }: ProductCardProps) {
         </CardTitle>
       </CardContent>
       <CardFooter className="flex items-center justify-between p-6 pt-0">
-        <div className="text-lg font-semibold">
-          {price.type === 'fixed'
-            ? `$${price.value?.toFixed(2)}`
-            : t.productCard.onDemand}
+        <div className="text-lg font-semibold h-7">
+          {price.type === 'fixed' &&
+            `$${price.value?.toFixed(2)}`}
         </div>
         <Link href={`/products/${slug}`} className="flex items-center text-sm font-semibold text-primary hover:underline">
           {t.productCard.viewDetails} <Arrow className="ms-1 h-4 w-4" />

@@ -62,10 +62,9 @@ export default function ProductDetailPage() {
           <h1 className="mt-2 font-headline text-5xl font-bold">
             {product.name}
           </h1>
-          <div className="mt-4 text-2xl font-semibold text-primary">
-            {product.price.type === 'fixed'
-              ? `$${product.price.value?.toFixed(2)}`
-              : t.productDetailsPage.priceOnDemand}
+          <div className="mt-4 text-2xl font-semibold text-primary h-8">
+            {product.price.type === 'fixed' &&
+              `$${product.price.value?.toFixed(2)}`}
           </div>
           <p className="mt-6 text-lg text-muted-foreground">
             {product.description}
