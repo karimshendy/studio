@@ -103,7 +103,7 @@ export const products: Product[] = [
   {
     id: 6,
     slug: 'italian-modular-kitchen',
-    name: 'مطبخ معياري إيطالي',
+    name: 'مطبخ معيارى',
     category: 'مطابخ',
     images: [
         { src: 'https://placehold.co/800x600.png', alt: 'Sleek Italian modular kitchen', aiHint: 'italian kitchen' },
