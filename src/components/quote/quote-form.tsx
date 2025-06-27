@@ -52,7 +52,6 @@ export default function QuoteForm() {
 
   useEffect(() => {
     const productName = searchParams.get('product');
-    const color = searchParams.get('color');
     const material = searchParams.get('material');
     const dimensions = searchParams.get('dimensions');
     const notes = searchParams.get('notes');
@@ -60,14 +59,12 @@ export default function QuoteForm() {
     if (productName) {
       const detailsAr = [
         `طلب عرض سعر للمنتج: ${productName}`,
-        color && `اللون: ${color}`,
         material && `المادة: ${material}`,
         notes && `ملاحظات العميل: ${notes}`,
       ].filter(Boolean).join('\n') + '\n\n';
 
       const detailsEn = [
         `Quote request for product: ${productName}`,
-        color && `Color: ${color}`,
         material && `Material: ${material}`,
         notes && `Customer notes: ${notes}`,
       ].filter(Boolean).join('\n') + '\n\n';

@@ -12,7 +12,6 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Textarea } from '@/components/ui/textarea';
-import { Check } from 'lucide-react';
 import { useLanguage } from '@/context/language-context';
 
 export default function ProductDetailPage() {
@@ -28,7 +27,6 @@ export default function ProductDetailPage() {
 
   const availableMaterials = React.useMemo(() => product.details.materials.split(',').map(s => s.trim()), [product.details.materials]);
 
-  const [selectedColor, setSelectedColor] = useState<string>(product.details.colors[0]);
   const [selectedMaterial, setSelectedMaterial] = useState<string>(availableMaterials[0]);
   const [customDimensions, setCustomDimensions] = useState<string>('');
   const [notes, setNotes] = useState<string>('');
@@ -38,7 +36,6 @@ export default function ProductDetailPage() {
   const getQuoteLink = () => {
     const query = new URLSearchParams();
     query.set('product', product.name);
-    query.set('color', selectedColor);
     query.set('material', selectedMaterial);
     
     if (isConfigurable && customDimensions) {
@@ -78,23 +75,6 @@ export default function ProductDetailPage() {
               {t.productDetailsPage.customizeTitle}
             </h3>
             <div className="mt-4 space-y-6">
-              <div>
-                <Label className="font-semibold">{t.productDetailsPage.availableColors}</Label>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  {product.details.colors.map((color) => (
-                    <Button
-                      key={color}
-                      variant={selectedColor === color ? 'default' : 'outline'}
-                      onClick={() => setSelectedColor(color)}
-                      className="gap-2"
-                    >
-                      {selectedColor === color && <Check className="h-4 w-4" />}
-                      {color}
-                    </Button>
-                  ))}
-                </div>
-              </div>
-
               <div>
                 <Label className="font-semibold">{t.productDetailsPage.materials}</Label>
                  <RadioGroup

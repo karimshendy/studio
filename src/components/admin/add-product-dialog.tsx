@@ -41,7 +41,6 @@ export default function AddProductDialog() {
     description: z.string().min(10, 'Description must be at least 10 characters'),
     materials: z.string().min(3, 'Materials are required'),
     dimensions: z.string().min(3, 'Dimensions are required'),
-    colors: z.string().min(3, 'Please list at least one color'),
     price: z.coerce.number().positive('Price must be a positive number').optional(),
   });
 
@@ -56,7 +55,6 @@ export default function AddProductDialog() {
       description: "",
       materials: "",
       dimensions: "",
-      colors: "",
     }
   });
 
@@ -165,19 +163,6 @@ export default function AddProductDialog() {
                 )}
                 />
             </div>
-            <FormField
-              control={form.control}
-              name="colors"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>{T.form.colors}</FormLabel>
-                  <FormControl>
-                    <Input placeholder={T.form.colorsPlaceholder} {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
             <FormField
               control={form.control}
               name="price"

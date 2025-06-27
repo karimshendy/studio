@@ -14,7 +14,6 @@ export type Product = {
   details: {
     materials: string;
     dimensions: string;
-    colors: string[];
   };
   price: {
     type: 'fixed' | 'on-demand';
