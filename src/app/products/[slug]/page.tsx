@@ -1,9 +1,9 @@
 'use client';
 
-import React, { notFound } from 'next/navigation';
+import { useParams, notFound } from 'next/navigation';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { products } from '@/lib/data';
-import { useState } from 'react';
 import type { Product } from '@/types';
 import ProductImageGallery from '@/components/products/product-image-gallery';
 import { Button } from '@/components/ui/button';
@@ -15,10 +15,12 @@ import { Textarea } from '@/components/ui/textarea';
 import { Check } from 'lucide-react';
 import { useLanguage } from '@/context/language-context';
 
-export default function ProductDetailPage({ params }: { params: { slug: string } }) {
+export default function ProductDetailPage() {
   const { dictionary: t } = useLanguage();
+  const params = useParams();
+  const slug = params.slug as string;
   
-  const product = products.find((p) => p.slug === params.slug);
+  const product = products.find((p) => p.slug === slug);
 
   if (!product) {
     notFound();
