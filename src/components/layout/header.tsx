@@ -18,7 +18,6 @@ export default function Header() {
     { href: '/', label: t.header.home },
     { href: '/products', label: t.header.products },
     { href: '/ar-designer', label: t.header.arDesigner },
-    { href: '/admin', label: t.header.admin },
   ];
 
   return (
