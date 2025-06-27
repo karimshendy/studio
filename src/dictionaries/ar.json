@@ -5,7 +5,7 @@
       "home": "الرئيسية",
       "products": "المنتجات",
       "arDesigner": "المصمم الذكي",
-      "getQuote": "اطلب عرض سعر"
+      "getQuote": "عرض التكلفة"
     },
     "footer": {
       "title": "كريم ارت",
@@ -13,7 +13,7 @@
       "explore": "استكشف",
       "products": "المنتجات",
       "arDesigner": "المصمم الذكي",
-      "getQuote": "اطلب عرض سعر",
+      "getQuote": "عرض التكلفة",
       "company": "الشركة",
       "aboutUs": "عنا",
       "careers": "وظائف",
@@ -54,7 +54,7 @@
       "productDetails": "تفاصيل المنتج",
       "materials": "المسطحات",
       "dimensions": "الأبعاد",
-      "getFreeQuote": "اطلب عرض سعر مجاني",
+      "getFreeQuote": "اطلب عرض التكلفة",
       "customizeTitle": "خصّص منتجك",
       "dimensionsPlaceholder": "أدخل الأبعاد المطلوبة (مثال: 2م عرض × 1.5م ارتفاع)",
       "notesTitle": "ملاحظات إضافية",
@@ -109,8 +109,8 @@
       }
     },
     "quotePage": {
-      "title": "احصل على عرض سعر مجاني",
-      "description": "أخبرنا عن مشروعك، وسنعاود الاتصال بك بعرض أسعار مخصص."
+      "title": "اطلب عرض التكلفة",
+      "description": "أخبرنا عن مشروعك، وسنعاود الاتصال بك بعرض تكلفة مخصص."
     },
     "quoteForm": {
       "fullName": "الاسم الكامل",
@@ -124,9 +124,9 @@
       "projectDetails": "تفاصيل المشروع",
       "detailsPlaceholder": "صف مشروعك وتفضيلات الأسلوب وأي عناصر محددة تهتم بها.",
       "uploadImages": "تحميل الصور (اختياري)",
-      "getFreeQuote": "احصل على عرض سعر مجاني",
+      "getFreeQuote": "اطلب عرض التكلفة",
       "submitting": "جاري الإرسال...",
-      "successTitle": "تم إرسال طلب عرض السعر بنجاح!",
+      "successTitle": "تم إرسال طلب عرض التكلفة بنجاح!",
       "successDescription": "شكرًا لك! لقد تلقينا طلبك وسنتواصل معك قريبًا.",
       "errors": {
         "name": "يجب أن يتكون الاسم من حرفين على الأقل.",
@@ -142,7 +142,7 @@
       "stats": {
         "totalRevenue": "إجمالي الإيرادات",
         "totalProducts": "إجمالي المنتجات",
-        "subscriptions": "طلبات الأسعار",
+        "subscriptions": "طلبات عرض التكلفة",
         "sales": "العملاء الجدد"
       }
     },

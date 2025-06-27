@@ -58,7 +58,7 @@ export default function QuoteForm() {
 
     if (productName) {
       const detailsAr = [
-        `طلب عرض سعر للمنتج: ${productName}`,
+        `طلب عرض تكلفة للمنتج: ${productName}`,
         material && `المادة: ${material}`,
         notes && `ملاحظات العميل: ${notes}`,
       ].filter(Boolean).join('\n') + '\n\n';
