@@ -1,8 +1,7 @@
-
 'use client';
 
 import Link from 'next/link';
-import { Menu, X, Sofa } from 'lucide-react';
+import { Menu, X, Paintbrush } from 'lucide-react';
 import { useState } from 'react';
 
 import { Button } from '@/components/ui/button';
@@ -25,7 +24,7 @@ export default function Header() {
       <div className="container flex h-16 items-center">
         <div className={cn("me-4 flex", language === 'en' && 'mr-4')}>
           <Link href="/" className="flex items-center space-x-2 rtl:space-x-reverse">
-            <Sofa className="h-8 w-8 text-primary" />
+            <Paintbrush className="h-8 w-8 text-primary" />
             <span className="font-headline text-2xl font-bold">{t.header.title}</span>
           </Link>
         </div>
