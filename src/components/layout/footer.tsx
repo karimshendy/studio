@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Paintbrush, Twitter, Facebook, Instagram } from 'lucide-react';
+import { Home, Twitter, Facebook, Instagram } from 'lucide-react';
 import { useLanguage } from '@/context/language-context';
 
 export default function Footer() {
@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div className="flex flex-col">
             <Link href="/" className="flex items-center space-x-2 rtl:space-x-reverse">
-              <Paintbrush className="h-8 w-8 text-primary" />
+              <Home className="h-8 w-8 text-primary" />
               <span className="font-headline text-2xl font-bold">{t.footer.title}</span>
             </Link>
             <p className="mt-4 text-muted-foreground">
